@@ -24,6 +24,7 @@
             android:layout_marginBottom="30dp">
 
             <EditText
+                android:id="@+id/et_email"
                 android:fontFamily="@font/pp_regular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -38,6 +39,7 @@
             android:layout_marginBottom="30dp">
 
             <EditText
+                android:id="@+id/et_password"
                 android:fontFamily="@font/pp_regular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
