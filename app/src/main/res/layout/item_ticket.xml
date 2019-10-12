@@ -53,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="12sp"
-        android:layout_marginRight="6dp"
+        android:layout_marginRight="8dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:text="/kursi"/>
@@ -66,7 +66,7 @@
         android:layout_toLeftOf="@id/kur"
         android:text="Rp 70.000"/>
     <TextView
-        android:layout_marginRight="6dp"
+        android:layout_marginRight="8dp"
         android:layout_alignParentRight="true"
         android:layout_above="@+id/kur"
         android:layout_width="wrap_content"
