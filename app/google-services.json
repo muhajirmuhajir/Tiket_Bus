@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "699497142392",
+    "firebase_url": "https://tiketbus-9dc49.firebaseio.com",
+    "project_id": "tiketbus-9dc49",
+    "storage_bucket": "tiketbus-9dc49.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699497142392:android:3018aa1b8fb42accfff58d",
+        "android_client_info": {
+          "package_name": "id.tiketbus.tiketbus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "699497142392-9n8p7tn094dqaqo68ek831oe6aoe7o41.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.tiketbus.tiketbus",
+            "certificate_hash": "5d17d9539f0cee631cdfd2e05bd0fa8ab24f6b2e"
+          }
+        },
+        {
+          "client_id": "699497142392-b5ju24kmu1sb7ikubppk5urkg7ht394l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAllG8dqfGXTWWJ432UkI2uXRFVhl8Tj1c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "699497142392-b5ju24kmu1sb7ikubppk5urkg7ht394l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

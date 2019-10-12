@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp">
+
+            <ImageView
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="8dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/tiketbus_logo"/>
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabView"
+                android:layout_marginTop="30dp"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                app:tabIndicatorColor="#ffff"
+                app:tabTextAppearance="@style/TabLayoutStyle"
+                android:layout_marginRight="16dp"
+                app:tabTextColor="#ffff">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign In" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign Up" />
+            </com.google.android.material.tabs.TabLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            android:fontFamily="@font/pp_regular"
+            android:layout_marginLeft="16dp"
+            android:textColor="#ffff"
+            android:textSize="28sp"
+            android:text="Selamat Datang,"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:fontFamily="@font/pp_light"
+            android:layout_marginLeft="16dp"
+            android:textColor="#ffff"
+            android:textSize="14sp"
+            android:layout_marginBottom="16dp"
+            android:text="Daftar untuk melanjutkan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/container_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

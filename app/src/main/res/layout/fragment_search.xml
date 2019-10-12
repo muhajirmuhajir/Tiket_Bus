@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/grey"
+    tools:context=".fragments.SearchFragment">
+
+    <TextView
+        android:paddingTop="30dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="18dp"
+        android:background="@drawable/action_bar_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cari Tiket Bus"
+        android:textSize="36dp"
+        android:textColor="@color/black"/>
+    <LinearLayout
+        android:layout_marginTop="22dp"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:fontFamily="@font/pp_regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Asal"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="30dp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:fontFamily="@font/pp_regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tujuan"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout><com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="30dp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:fontFamily="@font/pp_regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tanggal Berangkat"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="30dp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:fontFamily="@font/pp_regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Banyak Kursi"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="65dp"
+            android:background="@drawable/btn_main"
+            android:text="Cari Tiket"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="18dp" />
+    </LinearLayout>
+
+</LinearLayout>

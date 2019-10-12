@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/grey"
+    tools:context=".fragments.HomeFragment">
+
+    <LinearLayout
+        android:id="@+id/topPanel"
+        android:background="@drawable/action_bar_bg"
+        android:paddingTop="16dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Halo Muhajir"
+            android:textSize="14sp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mau Kemana Hari Ini"
+            android:textSize="28sp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="20dp"/>
+
+        <Button
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="match_parent"
+            android:background="#DADADA"
+            android:textSize="14sp"
+            android:text="Cari Lokasi Tujuan"
+            android:textColor="#ACACAC"
+            android:textAllCaps="false"
+            android:textAlignment="textStart"
+            android:paddingLeft="16dp"
+            android:drawablePadding="8dp"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/icon_search"
+            android:layout_marginBottom="30dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/topPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:text="Rekomendasi"/>
+
+    <TextView
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/topPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        android:text="Tempat yang bagus untuk dikunjungi" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_width="match_parent"
+        tools:listitem="@layout/item_rekomendasi"
+        android:layout_height="148dp"/>
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/topPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:text="Jelajah Kota"/>
+
+    <TextView
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/topPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        android:text="jelajahi tempat favorit di kota sekarang" />
+
+</LinearLayout>

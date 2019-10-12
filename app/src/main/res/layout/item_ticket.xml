@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginLeft="16dp"
+    android:background="@android:color/white"
+    android:layout_marginRight="16dp"
+    android:layout_marginBottom="16dp"
+    android:layout_height="87dp">
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="6dp"
+        android:id="@+id/tv_bus_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Big Bird"
+        android:textColor="@color/black"
+        android:textSize="14sp"/>
+    <TextView
+        android:layout_marginLeft="6dp"
+        android:layout_below="@id/tv_bus_name"
+        android:id="@+id/tv_type"
+        android:textSize="13sp"
+        android:fontFamily="@font/pp_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Regular Shuttle"/>
+
+    <TextView
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="6dp"
+        android:layout_below="@id/tv_type"
+        android:id="@+id/tv_time"
+        android:textSize="13sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="04:00 - 09:10"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="6dp"
+        android:layout_toRightOf="@id/tv_time"
+        android:layout_below="@id/tv_type"
+        android:id="@+id/tv_duration"
+        android:textSize="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5j 10mnt" />
+
+    <TextView
+        android:id="@+id/kur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:layout_marginRight="6dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="/kursi"/>
+    <TextView
+        android:layout_marginRight="2dp"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorOrange"
+        android:layout_toLeftOf="@id/kur"
+        android:text="Rp 70.000"/>
+    <TextView
+        android:layout_marginRight="6dp"
+        android:layout_alignParentRight="true"
+        android:layout_above="@+id/kur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:text="Rp 80.000/kursi"
+        />
+</RelativeLayout>
