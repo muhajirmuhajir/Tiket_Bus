@@ -1,6 +1,8 @@
 package id.tiketbus.tiketbus.fragments;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -51,7 +53,13 @@ public class signin extends Fragment {
         et_email = view.findViewById(R.id.et_email);
         et_password = view.findViewById(R.id.et_password);
 
-        login();
+        btnSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                login();
+            }
+        });
+
         return view;
     }
     private Boolean isInputEmpty(String input) {
@@ -101,24 +109,31 @@ public class signin extends Fragment {
         }else if (isPasswordeasy(password)&& !isPasswordValid(password)){
             et_password.setError("Password tidak valid");
         }else {
-            btnSignIn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    mAuth.signInWithEmailAndPassword(email,password)
-                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if (task.isSuccessful()){
-                                        startActivity(new Intent(getActivity(), MainActivity.class));
-                                        getActivity().finish();
-                                    }else {
-                                        Toast.makeText(getContext(),"Login Gagal", Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            });
 
-                }
-            });
+
+            mAuth.signInWithEmailAndPassword(email,password)
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()){
+                                startActivity(new Intent(getActivity(), MainActivity.class));
+                                getActivity().finish();
+                            }else {
+                                new AlertDialog.Builder(getContext())
+                                        .setTitle("Login Gagal")
+                                        .setMessage("Email atau Password yang anda masukkan salah")
+
+                                        // Specifying a listener allows you to take an action before dismissing the dialog.
+                                        // The dialog is automatically dismissed when a dialog button is clicked.
+                                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                // Continue with delete operation
+                                                et_password.setText("");
+                                            }
+                                        }).show();
+                            }
+                        }
+                    });
         }
 
 
