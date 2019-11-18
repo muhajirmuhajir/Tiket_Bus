@@ -6,15 +6,24 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import id.tiketbus.tiketbus.LoginActivity;
 import id.tiketbus.tiketbus.R;
@@ -43,7 +52,37 @@ public class AkunFragment extends Fragment implements View.OnClickListener{
         _btnlogout = v.findViewById(R.id.btn_logout);
         _btnlogout.setOnClickListener(this);
 
+
         return v;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        final TextView name = view.findViewById(R.id.tv_name);
+        final EditText email = view.findViewById(R.id.et_email);
+        final EditText alamat = view.findViewById(R.id.et_alamat);
+
+        String uid = FirebaseAuth.getInstance().getUid();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference().child("Penumpang").child(uid);
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    name.setText(dataSnapshot.child("nama").getValue().toString());
+                    email.setText(dataSnapshot.child("email").getValue().toString());
+                    alamat.setText(dataSnapshot.child("alamat").getValue().toString());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override

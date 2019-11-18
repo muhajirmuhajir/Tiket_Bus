@@ -30,7 +30,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.nama.setText(tikets.get(position).getNama_bus());
-        holder.harga.setText(tikets.get(position).getHarga_kursi());
+        holder.harga.setText("Rp."+tikets.get(position).getHarga_kursi());
         holder.type.setText(tikets.get(position).getKategori());
 
     }
