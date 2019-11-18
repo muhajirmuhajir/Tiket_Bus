@@ -3,77 +3,83 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/grey"
+    android:orientation="vertical"
     tools:context=".fragments.SearchFragment">
 
     <TextView
-        android:paddingTop="30dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingBottom="18dp"
-        android:background="@drawable/action_bar_bg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/action_bar_bg"
+        android:paddingLeft="20dp"
+        android:paddingTop="30dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="18dp"
         android:text="Cari Tiket Bus"
-        android:textSize="36dp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:textSize="36dp" />
+
     <LinearLayout
-        android:layout_marginTop="22dp"
-        android:paddingRight="16dp"
-        android:paddingLeft="16dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_marginTop="22dp"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <EditText
-                android:fontFamily="@font/pp_regular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/pp_regular"
                 android:hint="Asal"
                 android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="30dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
 
             <EditText
-                android:fontFamily="@font/pp_regular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/pp_regular"
                 android:hint="Tujuan"
                 android:singleLine="true" />
-        </com.google.android.material.textfield.TextInputLayout><com.google.android.material.textfield.TextInputLayout
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="30dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
 
             <EditText
-                android:fontFamily="@font/pp_regular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/pp_regular"
                 android:hint="Tanggal Berangkat"
                 android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="30dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
 
             <EditText
-                android:fontFamily="@font/pp_regular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/pp_regular"
                 android:hint="Banyak Kursi"
                 android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
+            android:id="@+id/btn_search"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

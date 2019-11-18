@@ -2,6 +2,7 @@ package id.tiketbus.tiketbus.fragments;
 
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -36,6 +38,8 @@ public class signin extends Fragment {
     private EditText et_email, et_password;
     private FirebaseAuth mAuth;
 
+    private ProgressDialog progressDialog;
+
     public signin() {
         // Required empty public constructor
     }
@@ -48,6 +52,9 @@ public class signin extends Fragment {
         View view = inflater.inflate(R.layout.fragment_signin, container, false);
 
         mAuth = FirebaseAuth.getInstance();
+
+        progressDialog = new ProgressDialog(getContext());
+
 
         btnSignIn = view.findViewById(R.id.btn_sign_in);
         et_email = view.findViewById(R.id.et_email);
@@ -109,16 +116,22 @@ public class signin extends Fragment {
         }else if (isPasswordeasy(password)&& !isPasswordValid(password)){
             et_password.setError("Password tidak valid");
         }else {
-
+            progressDialog.setTitle("Login In");
+            progressDialog.setMessage("wait a moment");
+            progressDialog.setCancelable(false);
+            progressDialog.setCanceledOnTouchOutside(false);
+            progressDialog.show();
 
             mAuth.signInWithEmailAndPassword(email,password)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()){
+                                progressDialog.dismiss();
                                 startActivity(new Intent(getActivity(), MainActivity.class));
                                 getActivity().finish();
                             }else {
+                                progressDialog.dismiss();
                                 new AlertDialog.Builder(getContext())
                                         .setTitle("Login Gagal")
                                         .setMessage("Email atau Password yang anda masukkan salah")

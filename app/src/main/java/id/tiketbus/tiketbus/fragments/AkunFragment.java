@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import id.tiketbus.tiketbus.LoginActivity;
 import id.tiketbus.tiketbus.R;
+import id.tiketbus.tiketbus.SplashActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,7 +60,7 @@ public class AkunFragment extends Fragment implements View.OnClickListener{
                             public void onClick(DialogInterface dialog, int which) {
                                 // Continue with delete operation
                                 _mAuth.signOut();
-                                startActivity(new Intent(getContext(), LoginActivity.class));
+                                startActivity(new Intent(getContext(), SplashActivity.class));
                                 getActivity().finish();
                             }
                         }).setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {

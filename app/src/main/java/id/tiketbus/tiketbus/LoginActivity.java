@@ -5,6 +5,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.EditText;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,6 +30,8 @@ public class LoginActivity extends AppCompatActivity {
         tab.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(container));
         container.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tab));
 
+
+
     }
 
     @Override
@@ -36,7 +39,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            startActivity(new Intent(this, MainActivity.class));
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            finish();
         }
     }
 }

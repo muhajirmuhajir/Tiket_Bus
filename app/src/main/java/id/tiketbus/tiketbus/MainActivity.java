@@ -24,21 +24,27 @@ public class MainActivity extends AppCompatActivity {
 
         loadFragment(new HomeFragment());
         bottomNavigationView = findViewById(R.id.bn_main_navigation);
+        BottomNavigation();
+
+
+    }
+
+    private void BottomNavigation() {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 Fragment fragment = null;
-                switch (menuItem.getItemId()){
-                    case R.id.home :
+                switch (menuItem.getItemId()) {
+                    case R.id.home:
                         fragment = new HomeFragment();
                         break;
-                    case R.id.cari :
+                    case R.id.cari:
                         fragment = new SearchFragment();
                         break;
-                    case R.id.pesanan :
+                    case R.id.pesanan:
                         fragment = new PesananFragment();
                         break;
-                    case R.id.akun :
+                    case R.id.akun:
                         fragment = new AkunFragment();
                         break;
                 }
@@ -46,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     // method untuk load fragment yang sesuai
     private boolean loadFragment(Fragment fragment) {
         if (fragment != null) {

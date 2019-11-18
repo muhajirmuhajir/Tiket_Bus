@@ -8,26 +8,26 @@
 
 
     <LinearLayout
-        android:background="@drawable/bg_login"
-        android:paddingRight="16dp"
-        android:paddingLeft="16dp"
-        android:paddingBottom="60dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:background="@drawable/bg_login"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="60dp">
 
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="46dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="46dp"
             android:layout_marginBottom="30dp">
 
             <EditText
                 android:id="@+id/et_email"
-                android:fontFamily="@font/pp_regular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/pp_regular"
                 android:hint="Alamat Email"
                 android:inputType="textWebEmailAddress"
                 android:singleLine="true" />
@@ -40,9 +40,9 @@
 
             <EditText
                 android:id="@+id/et_password"
-                android:fontFamily="@font/pp_regular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/pp_regular"
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:singleLine="true" />
@@ -56,36 +56,36 @@
             android:hint="dengan mendaftar, saya setuju syarat dan ketentuan" />
 
         <Button
-            android:fontFamily="@font/pp_regular"
-            android:textColor="#fff"
             android:id="@+id/btn_sign_in"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="30dp"
-            android:textAllCaps="false"
             android:background="@drawable/btn_main"
-            android:text="Sign In" />
+            android:fontFamily="@font/pp_regular"
+            android:text="Sign In"
+            android:textAllCaps="false"
+            android:textColor="#fff" />
 
         <TextView
-            android:fontFamily="@font/pp_regular"
-            android:layout_marginTop="30dp"
-            android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="-atau kamu bisa-" />
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/pp_regular"
+            android:text="-atau kamu bisa-"
+            android:textAlignment="center" />
 
         <Button
-            android:padding="15dp"
-            android:drawableLeft="@drawable/google_logo"
-            android:fontFamily="@font/pp_regular"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
-            android:textColor="#B3B3B3"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="30dp"
-            android:textAllCaps="false"
             android:background="@drawable/btn_secondary"
-            android:text="Sign Up With Google" />
+            android:drawableLeft="@drawable/google_logo"
+            android:fontFamily="@font/pp_regular"
+            android:padding="15dp"
+            android:text="Sign Up With Google"
+            android:textAllCaps="false"
+            android:textColor="#B3B3B3" />
 
     </LinearLayout>
 </ScrollView>
