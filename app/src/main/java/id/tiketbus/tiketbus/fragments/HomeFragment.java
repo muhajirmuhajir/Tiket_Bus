@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -31,8 +32,9 @@ import id.tiketbus.tiketbus.services.PlaceGet;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment {
-
+public class HomeFragment extends Fragment implements PlaceGet.OnPlaceGet, ValueEventListener {
+    RecyclerView rvRekomendasi;
+    TextView tvName;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -50,35 +52,42 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        final RecyclerView rvRekomendasi = view.findViewById(R.id.rv_rekomendasi);
-        final TextView tvName = view.findViewById(R.id.hello);
+        rvRekomendasi = view.findViewById(R.id.rv_rekomendasi);
+         tvName = view.findViewById(R.id.hello);
 
         PlaceGet placeGet = new PlaceGet();
-        placeGet.getPlace(new PlaceGet.OnPlaceGet() {
-            @Override
-            public void OnGet(ArrayList<Place> data) {
-                rvRekomendasi.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
-                PlaceAdapter adapter = new PlaceAdapter();
-                adapter.setPlaces(data);
-                rvRekomendasi.setAdapter(adapter);
-
-            }
-        });
+        placeGet.getPlace(this);
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Penumpang").child(FirebaseAuth.getInstance().getUid());
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    tvName.setText("Halo " + dataSnapshot.child("nama").getValue().toString());
-                }
-            }
+        reference.addListenerForSingleValueEvent(this);
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+    }
 
+    @Override
+    public void OnGet(ArrayList<Place> data) {
+        rvRekomendasi.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
+        PlaceAdapter adapter = new PlaceAdapter();
+        adapter.setPlaces(data);
+        rvRekomendasi.setAdapter(adapter);
+
+        adapter.setOnItemClickCallback(new PlaceAdapter.OnItemClickCallback() {
+            @Override
+            public void onItemClicked(Place place) {
+                Toast.makeText(getContext(),"Kamu memilih "+place.getKota(),Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    @Override
+    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+        String uid = FirebaseAuth.getInstance().getUid();
+        if (dataSnapshot.getKey().equals(uid)) {
+            tvName.setText("Halo " + dataSnapshot.child("nama").getValue().toString());
+        }
+    }
+
+    @Override
+    public void onCancelled(@NonNull DatabaseError databaseError) {
 
     }
 }

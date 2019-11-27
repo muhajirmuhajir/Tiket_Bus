@@ -18,6 +18,11 @@ import id.tiketbus.tiketbus.models.Place;
 
 public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> {
     private ArrayList<Place> places;
+    private OnItemClickCallback onItemClickCallback;
+
+    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback;
+    }
 
     public void setPlaces(ArrayList<Place> places) {
         this.places = places;
@@ -32,9 +37,9 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         holder.kota.setText(places.get(position).getKota());
-        holder.provinsi.setText(places.get(position).getKota());
+        holder.provinsi.setText(places.get(position).getProvinsi());
 
         String url = places.get(position).getFoto();
         if (!url.equals("default")) {
@@ -42,6 +47,17 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> 
 
         }
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onItemClickCallback.onItemClicked(places.get(holder.getAdapterPosition()));
+            }
+        });
+
+    }
+
+    public interface OnItemClickCallback{
+        void onItemClicked(Place place);
     }
 
     @Override
